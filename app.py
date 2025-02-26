@@ -63,7 +63,7 @@ def decoraciones():
     cursor.execute(sql)
     registros = cursor.fetchall()
 
-    return render_template("Decoracions.html", decoraciones=registros)
+    return render_template("Decoraciones.html", decoraciones=registros)
 
 @app.route("/Decoraciones/buscar", methods=["GET"])
 def buscarDecoraciones():
