@@ -3,17 +3,13 @@
         <tr>
             <th>Id</th>
             <th>Nombre</th>
-            <th>Precio</th>
-            <th>Existencias</th>
         </tr>
     </thead>
     <tbody>
-        {% for producto in productos %}
+        {% for decoracione in decoraciones %}
         <tr>
-            <td>{{ producto.Id_Producto }}</td>
-            <td>{{ producto.Nombre_Producto }}</td>
-            <td>{{ producto.Precio }}</td>
-            <td>{{ producto.Existencias }}</td>
+            <td>{{ decoracione.Id_Decoracion }}</td>
+            <td>{{ decoracione.NombreMaterial }}</td>
         </tr>
         {% endfor %}
     </tbody>
