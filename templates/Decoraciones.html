@@ -1,16 +1,41 @@
-<table class="table table-sm">
-    <thead class="table-active">
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for decoracione in decoraciones %}
-        <tr>
-            <td>{{ decoracione.Id_Decoracion }}</td>
-            <td>{{ decoracione.NombreMaterial }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="container mt-4">
+    <h2>Gestión de Decoraciones</h2>
+
+    <!-- Formulario para agregar/modificar decoraciones -->
+    <form ng-submit="decoracion.id ? modificarDecoracion() : agregarDecoracion()">
+        <div class="mb-3">
+            <label class="form-label">Nombre:</label>
+            <input type="text" class="form-control" ng-model="decoracion.nombre" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Descripción:</label>
+            <input type="text" class="form-control" ng-model="decoracion.descripcion" required>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            {{ decoracion.id ? "Modificar" : "Agregar" }}
+        </button>
+    </form>
+
+    <!-- Tabla de decoraciones -->
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="d in decoraciones">
+                <td>{{ d.id }}</td>
+                <td>{{ d.nombre }}</td>
+                <td>{{ d.descripcion }}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" ng-click="editarDecoracion(d)">Editar</button>
+                    <button class="btn btn-danger btn-sm" ng-click="eliminarDecoracion(d.id)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
