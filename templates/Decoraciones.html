@@ -27,15 +27,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="d in decoraciones">
-                <td>{{ d.id }}</td>
-                <td>{{ d.nombre }}</td>
+            {% for decoracione in decoraciones %}
+            <tr>
+                <td>{{ decoracione.Id_Decoracion }}</td>
+                <td>{{ decoracione.NombreMaterial }}</td>
                 <td>{{ d.descripcion }}</td>
                 <td>
                     <button class="btn btn-warning btn-sm" ng-click="editarDecoracion(d)">Editar</button>
                     <button class="btn btn-danger btn-sm" ng-click="eliminarDecoracion(d.id)">Eliminar</button>
                 </td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>
